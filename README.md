@@ -47,7 +47,7 @@ The same view brushed to refusal ≤ 5% (36 trials): high overcorrect weight, de
 
 ![Parallel coordinates brushed to refusal ≤ 5%](assets/trials_param_strip_low_refusal.png)
 
-Spearman ρ between each searched parameter and each outcome (n = 100; |ρ| ≳ 0.2 is nominally p < 0.05, uncorrected; parameters were sampled jointly, so these are marginal associations):
+Spearman ρ, searched parameters vs outcomes (n = 100):
 
 | parameter | refusal | sycophancy | KL |
 | --- | ---: | ---: | ---: |
@@ -62,20 +62,6 @@ Spearman ρ between each searched parameter and each outcome (n = 100; |ρ| ≳ 
 ## Verified behavior (greedy, exported weights)
 
 Refusal-trigger prompts are answered directly without hedging; false-premise prompts are corrected rather than flattered; factual-control answers are unchanged in content and style.
-
-## Usage
-
-Identical to the source model: reasoning model — use `reasoning_effort="high"` (or medium/low) via `chat_template_kwargs`; IFM thinking/tool tags per the [oMLX K2-Horizon patch](https://github.com/jundot/omlx/pull/3441).
-
-```python
-from openai import OpenAI
-client = OpenAI(base_url="http://localhost:8000/v1", api_key="EMPTY")
-r = client.chat.completions.create(
-    model="Flakily6416/K2-Horizon-7B-Uno-heretic",
-    messages=[{"role": "user", "content": "Explain step by step."}],
-    extra_body={"chat_template_kwargs": {"reasoning_effort": "high"}},
-)
-```
 
 ## Provenance
 
