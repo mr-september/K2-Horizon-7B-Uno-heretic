@@ -16,6 +16,17 @@ A single combined ARA pass co-optimizing three objectives over 100 Optuna trials
 
 Selected from the 18-point Pareto front by behavior-per-KL: the only 0/0 trial cost KL 8.9 (~46× the tax for 3 keyword points). Evaluation used the model's chat template with `reasoning_effort=medium` (the shipped template keeps the original `high` default, untouched); Heretic's CoT-skip was configured for the `<ifm|think*>` tag family so scoring evaluated answers, not thinking blocks.
 
+Selected trial (#77) parameters:
+
+| Parameter | Value |
+| --- | --- |
+| `start_layer_index` | 2 |
+| `end_layer_index` | 34 |
+| `neighbor_count` | 5 |
+| `preserve_good_behavior_weight` | 0.220 |
+| `steer_bad_behavior_weight` | 0.0002 |
+| `overcorrect_relative_weight` | 0.988 |
+
 Modification targets `self_attn.o_proj` and `mlp.down_proj` in the learned layer range only — sampled non-targeted tensors (layernorms, `q_proj`, `gate_proj`) are bit-identical to the source model.
 
 ## Search trace
@@ -81,7 +92,6 @@ r = client.chat.completions.create(
 | `checkpoints/study.jsonl` | The Optuna study journal (100 trials) |
 | `config.toml` | Heretic config for the final export |
 | `run_heretic.py` | Wrapper that forces `trust_remote_code=True` for the custom `k2_horizon` code |
-| `RESULTS.md` | Reproduction provenance (versions, selected trial, slices) |
 | `assets/` | Figures used in this README and the model card |
 
 ## License
