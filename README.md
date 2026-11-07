@@ -2,7 +2,7 @@
 
 **Weights and model card: [Flakily6416/K2-Horizon-7B-Uno-heretic on Hugging Face](https://huggingface.co/Flakily6416/K2-Horizon-7B-Uno-heretic).** This repository holds everything except the weights: the search data, the interactive trace ([hosted page](https://mr-september.github.io/K2-Horizon-7B-Uno-heretic/)), the config and the Optuna study.
 
-Behavior-modified version of [hermitdave/K2-Horizon-7B-Uno-merged](https://huggingface.co/hermitdave/K2-Horizon-7B-Uno-merged) (merged LoRA of [IFM/K2-Horizon-7B-Uno](https://huggingface.co/IFM/K2-Horizon-7B-Uno)), produced with [Heretic 2.x](https://github.com/p-e-w/heretic) using the Arbitrary-Rank Ablation (ARA) modifier. LoRA merged into full bf16 weights — runs as a standard autoregressive model, same oMLX/MLX notes as the source card apply.
+Behavior-modified version of [hermitdave/K2-Horizon-7B-Uno-merged](https://huggingface.co/hermitdave/K2-Horizon-7B-Uno-merged) (merged LoRA of [IFM/K2-Horizon-7B-Uno](https://huggingface.co/IFM/K2-Horizon-7B-Uno)), produced with [Heretic 2.x](https://github.com/p-e-w/heretic) using the Arbitrary-Rank Ablation (ARA) modifier.
 
 ## What was changed
 
